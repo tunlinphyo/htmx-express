@@ -1,0 +1,56 @@
+<li id="card-{{ card.id }}">
+    <div class="p-4 border border-solid border-emerald-500 rounded aspect-[4/3] bg-white
+        hover:border-emerald-600 hover:text-emerald-600
+        flex flex-col justify-center items-center relative text-center
+        dark:bg-gray-700 dark:border-emerald-700 dark:text-emerald-50
+        dark:hover:text-emerald-100"
+    >
+        <h3 class="text-md font-bold">{{ card.title }}</h3>
+        <p class="text-center">{{ card.description }}</p>
+
+        <button class="w-8 h-8 absolute top-2 right-[48px] text-gray-500
+            flex justify-center items-center rounded-[50%]
+            cursor-pointer hover:bg-green-100 hover:text-green-500
+            disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed
+            focus:outline-emerald-500
+            dark:text-gray-300 dark:hover:bg-green-900 dark:hover:text-green-50"
+            data-dialog-id="cardDialog"
+            data-dialog-target="card-{{ card.id }}"
+            hx-get="/components/cards/{{ card.id }}/edit"
+            hx-swap="innerHTML"
+            hx-target="#cardForm"
+            hx-disabled-elt="this"
+        >
+            <svg width="16" height="16" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M22.987,5.452c-.028-.177-.312-1.767-1.464-2.928-1.157-1.132-2.753-1.412-2.931-1.44-.237-.039-.479,.011-.682,.137-.071,.044-1.114,.697-3.173,2.438,1.059,.374,2.428,1.023,3.538,2.109,1.114,1.09,1.78,2.431,2.162,3.471,1.72-2.01,2.367-3.028,2.41-3.098,.128-.205,.178-.45,.14-.689Z"/>
+                <path fill="currentColor" d="M12.95,5.223c-1.073,.968-2.322,2.144-3.752,3.564C3.135,14.807,1.545,17.214,1.48,17.313c-.091,.14-.146,.301-.159,.467l-.319,4.071c-.022,.292,.083,.578,.29,.785,.188,.188,.443,.293,.708,.293,.025,0,.051,0,.077-.003l4.101-.316c.165-.013,.324-.066,.463-.155,.1-.064,2.523-1.643,8.585-7.662,1.462-1.452,2.668-2.716,3.655-3.797-.151-.649-.678-2.501-2.005-3.798-1.346-1.317-3.283-1.833-3.927-1.975Z"/>
+            </svg>
+        </button>
+
+        <button class="w-8 h-8 absolute top-2 right-2 text-gray-500
+            flex justify-center items-center rounded-[50%]
+            cursor-pointer hover:bg-red-100 hover:text-red-500
+            disabled:bg-gray-200 disabled:text-gray-500 disabled:cursor-not-allowed
+            focus:outline-emerald-500
+            dark:text-gray-300 dark:hover:bg-red-900 dark:hover:text-red-50"
+            hx-delete="/components/cards/{{ card.id }}"
+            hx-indicator="#delSpinner-{{ card.id }}"
+            hx-disabled-elt="this"
+            hx-target="closest li"
+            hx-swap="delete"
+            hx-confirm="Are you sure you want to delete this card?"
+            hx-on--after-swap="htmx.process(document.getElementById('cards'))"
+        >
+            <svg class="icon-only" width="16" height="16" viewBox="0 0 24 24">
+                <path
+                    fill="currentColor"
+                    d="m17,4v-2c0-1.103-.897-2-2-2h-6c-1.103,0-2,.897-2,2v2H1v2h1.644l1.703,15.331c.169,1.521,1.451,2.669,2.982,2.669h9.304c1.531,0,2.813-1.147,2.981-2.669l1.703-15.331h1.682v-2h-6Zm-8-2h6v2h-6v-2Zm6.957,14.543l-1.414,1.414-2.543-2.543-2.543,2.543-1.414-1.414,2.543-2.543-2.543-2.543,1.414-1.414,2.543,2.543,2.543-2.543,1.414,1.414-2.543,2.543,2.543,2.543Z"/>
+            </svg>
+            <svg id="delSpinner-{{ card.id }}" class="spinner" width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    fill="currentColor"
+                    d="m12 4a1 1 0 0 1 -1-1v-2a1 1 0 0 1 2 0v2a1 1 0 0 1 -1 1zm1 19v-2a1 1 0 0 0 -2 0v2a1 1 0 0 0 2 0zm-9-11a1 1 0 0 0 -1-1h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1zm20 0a1 1 0 0 0 -1-1h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1zm-6.621-7.285 1-1.731a1 1 0 0 0 -1.731-1l-1 1.731a1 1 0 0 0 .365 1.366.987.987 0 0 0 .5.135 1 1 0 0 0 .866-.501zm-10.03 17.3 1-1.731a1 1 0 0 0 -1.731-1l-1 1.731a1 1 0 0 0 .364 1.366.989.989 0 0 0 .5.135 1 1 0 0 0 .867-.498zm-2.27-14.028a1 1 0 0 0 -.364-1.366l-1.731-1a1 1 0 0 0 -1 1.731l1.731 1a1 1 0 0 0 1.366-.365zm17.3 10.031a1 1 0 0 0 -.364-1.367l-1.731-1a1 1 0 0 0 -1 1.731l1.731 1a.987.987 0 0 0 .5.135 1 1 0 0 0 .867-.499zm-14.392-12.939a1 1 0 0 0 .365-1.366l-1-1.731a1 1 0 0 0 -1.731 1l1 1.731a1 1 0 0 0 .866.5.987.987 0 0 0 .5-.134zm10.031 17.3a1 1 0 0 0 .364-1.366l-1-1.731a1 1 0 0 0 -1.731 1l1 1.731a1 1 0 0 0 1.367.364zm2.269-14.03 1.731-1a1 1 0 0 0 -1-1.731l-1.731 1a1 1 0 0 0 1 1.731zm-17.3 10.03 1.731-1a1 1 0 0 0 -1-1.731l-1.731 1a1 1 0 0 0 .5 1.866.987.987 0 0 0 .497-.132z" />
+            </svg>
+        </button>
+    </div>
+</li>

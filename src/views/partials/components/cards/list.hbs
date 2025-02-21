@@ -1,0 +1,5 @@
+<ul id="cards" class="grid grid-cols-(--col-min-200) gap-4 py-6">
+    {{#each cards}}
+        {{> components/cards/media-card card=this }}
+    {{/each}}
+</ul>

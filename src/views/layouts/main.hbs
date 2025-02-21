@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" class="w-full h-full bg-gray-50 dark:bg-gray-900">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/styles/vars.css">
+    <link rel="stylesheet" href="/styles/toast.css">
+
+    <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="/extensions/toast.js"></script>
+    <script src="/extensions/confirm.js"></script>
+</head>
+<body class="w-full min-h-full grid grid-cols-(--main-grid-cols) grid-rows-(--main-grid-rows)">
+    {{> header}}
+    {{> nav}}
+    <main class="w-full max-w-7xl col-[body] row-[body] py-[5vh]">
+        {{{body}}}
+    </main>
+    {{> footer}}
+</body>
+</html>

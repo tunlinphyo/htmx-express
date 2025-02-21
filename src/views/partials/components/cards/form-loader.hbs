@@ -1,0 +1,28 @@
+<template id="cardFormLoading">
+    <div class="w-full max-w-xl rounded-md mx-auto p-4 bg-gray-50 dark:bg-gray-700">
+        <fieldset>
+            <legend class="mb-4">
+                <span class="bg-gray-200 dark:bg-gray-600 text-transparent rounded-md text-xl uppercase font-bold">New</span>
+                <span class="bg-gray-200 dark:bg-gray-600 text-transparent rounded-md text-xl uppercase font-bold">card</span>
+                {{!-- New card --}}
+            </legend>
+            <div class="mb-4 md:grid md:grid-cols-[160px_1fr] md:justify-start">
+                <div class="pt-1"><span class="text-sm bg-gray-200 dark:bg-gray-600 text-transparent rounded-md">Title</span></div>
+                <div>
+                    <div class="w-full h-9 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                </div>
+            </div>
+            <div class="mb-4 md:grid md:grid-cols-[160px_1fr] md:justify-start">
+                <div class="pt-1"><span class="text-sm bg-gray-200 dark:bg-gray-600 text-transparent rounded-md">Description</span></div>
+                <div>
+                    <div name="description" id="description"
+                        class="w-full h-20 bg-gray-200 dark:bg-gray-600 rounded"></div>
+                </div>
+            </div>
+            <div class="flex justify-end items-center gap-4">
+                <div class="min-w-32 h-8 bg-gray-200 dark:bg-gray-600 rounded-md"></div>
+                <div class="min-w-32 h-8 bg-gray-200 dark:bg-gray-600 rounded-md"></div>
+            </div>
+        </fieldset>
+    </div>
+</template>

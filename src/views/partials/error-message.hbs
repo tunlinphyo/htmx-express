@@ -1,0 +1,26 @@
+<div id="error-message"
+    class="hidden max-w-xl my-5 mx-auto p-4 border border-solid border-red-200 rounded bg-red-50 text-red-500
+        flex justify-between items-center"
+>
+    <p>Unknow Error!</p>
+    <button hx-on:click="handleRemoveError()">
+        <svg viewBox="0 0 24 24" width="24"
+            height="24">
+            <path
+                fill="currentColor"
+                d="m15.854,8.854l-3.146,3.146,3.146,3.146c.195.195.195.512,0,.707-.098.098-.226.146-.354.146s-.256-.049-.354-.146l-3.146-3.146-3.146,3.146c-.098.098-.226.146-.354.146s-.256-.049-.354-.146c-.195-.195-.195-.512,0-.707l3.146-3.146-3.146-3.146c-.195-.195-.195-.512,0-.707s.512-.195.707,0l3.146,3.146,3.146-3.146c.195-.195.512-.195.707,0s.195.512,0,.707Zm8.146,3.146c0,6.617-5.383,12-12,12S0,18.617,0,12,5.383,0,12,0s12,5.383,12,12Zm-1,0c0-6.065-4.935-11-11-11S1,5.935,1,12s4.935,11,11,11,11-4.935,11-11Z" />
+        </svg>
+    </button>
+</div>
+<script>
+    function handleDeleteError(event) {
+        let errorDiv = document.getElementById('error-message');
+        errorDiv.querySelector('p').textContent = event.detail.xhr.responseText || "Unknow Error!";
+        errorDiv.classList.remove('hidden');
+    }
+
+    function handleRemoveError() {
+        let errorDiv = document.getElementById('error-message');
+        errorDiv.classList.add('hidden');
+    }
+</script>

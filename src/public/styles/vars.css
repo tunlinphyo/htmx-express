@@ -1,0 +1,124 @@
+:root {
+    /* --main-grid-cols: [edge-start] clamp(1.5rem, 6vw, 20rem) [body-start] 1fr [body-end] clamp(1.5rem, 6vw, 20rem) [edge-end]; */
+    --main-grid-cols: [edge-start] 1fr [body-start] clamp(0rem, 90vw, 80rem) [body-end] 1fr [edge-end];
+    --main-grid-rows: [header-start] 80px [header-end nav-start] 40px [nav-end body-start] 1fr [body-end footer-start] 30px [footer-end];
+
+    --col-min-200: repeat(auto-fill, minmax(200px, 1fr));
+
+    --dialog-backgrop: #0005;
+
+    @media (prefers-color-scheme: dark) {
+        --dialog-backgrop: #000B;
+    }
+
+}
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
+.spinner {
+    display: none;
+}
+
+.htmx-request {
+
+    &.spinner, .spinner {
+        display: block;
+        animation: loading .5s ease infinite;
+    }
+}
+
+button[data-dialog-id] {
+    > * {
+        pointer-events: none;
+    }
+}
+
+[data-disabled-by-htmx] {
+    .icon-only {
+        display: none;
+    }
+}
+
+dialog {
+    transition: display .2s allow-discrete, overlay .2s allow-discrete;
+    animation: popupOut .2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+    &::backdrop {
+        animation: fadeOut .2s linear;
+        background-color: var(--dialog-backgrop);
+    }
+
+    &[open] {
+        animation: popupIn .2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+
+        &::backdrop {
+            opacity: 1;
+            animation: fadeIn .2s linear;
+        }
+    }
+}
+
+/* @layer components {
+    .product-hover {
+        &:hover:not(:has(button:hover)) {
+            color: red;
+        }
+    }
+} */
+
+@keyframes loading {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
+
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        translate: 0 60px;
+    }
+
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@keyframes popupOut {
+    from {
+        opacity: 1;
+        translate: 0 0;
+        scale: 1;
+    }
+
+    to {
+        opacity: 0;
+        translate: 0 60px;
+        scale: .95;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

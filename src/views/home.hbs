@@ -1,0 +1,65 @@
+<h2 class="text-3xl font-bold mb-8 dark:text-gray-50">Home Page</h2>
+
+<p class="mb-4 text-justify max-w-xl mx-auto dark:text-gray-100">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<p class="mb-4 text-justify max-w-xl mx-auto dark:text-gray-100">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<p class="mb-4 text-justify max-w-xl mx-auto dark:text-gray-100">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<div class="mb-4">
+    {{> components/buttons/card-list}}
+</div>
+
+{{!-- {{> components/buttons/add-card}} --}}
+<div class="flex justify-end">
+    <button class="min-w-32 h-8 inline-flex justify-center items-center gap-2
+        bg-emerald-500 text-white text-sm uppercase
+        px-4 rounded cursor-pointer hover:bg-emerald-600
+        disabled:bg-gray-200 disabled:cursor-not-allowed
+        focus:outline-emerald-300"
+        data-dialog-id="cardDialog"
+        data-dialog-target="card-new"
+        hx-get="/components/cards/new"
+        hx-swap="innerHTML"
+        hx-target="#cardForm"
+    >
+        Add Card
+    </button>
+</div>
+
+{{> form-dialog dialogId="cardDialog" formId="cardForm" loadingId="cardFormLoading" }}
+
+{{> components/cards/form-loader }}
+
+{{> components/cards/list cards=listItems}}
+
+<p class="mb-4 text-justify max-w-xl mx-auto dark:text-gray-100">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+<p class="mb-4 text-justify max-w-xl mx-auto dark:text-gray-100">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+    in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
