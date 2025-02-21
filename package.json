@@ -4,7 +4,8 @@
   "description": "HTMX Express",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/server.js",
+    "build": "tsc && cp -r src/public dist/public && cp -r src/views dist/views",
+    "start": "NODE_ENV=production node dist/server.js",
     "dev": "nodemon --ext ts --exec 'npx ts-node src/server.ts'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

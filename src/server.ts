@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 import componentRoutes from "./routes/components"
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.NODE_ENV === "production" ? 4000 : process.env.PORT || 3000;
 
 // Set Handlebars as the view engine
 app.engine("hbs", engine({
